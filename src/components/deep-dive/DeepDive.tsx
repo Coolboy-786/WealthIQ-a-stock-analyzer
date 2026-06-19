@@ -42,7 +42,7 @@ function getVerdict(report: DeepDiveReport, key: string | null): string | null {
   return map[key] ?? null;
 }
 
-export function DeepDive({ report }: { report: DeepDiveReport }) {
+export function DeepDive({ report, isLive }: { report: DeepDiveReport; isLive?: boolean }) {
   const [activeTab, setActiveTab] = useState<TabId>("snapshot");
 
   const qualityTier = VERDICT_TIER[report.theView.overallQuality] ?? "gray";
@@ -88,7 +88,7 @@ export function DeepDive({ report }: { report: DeepDiveReport }) {
         </div>
 
         {/* Meta row */}
-        <div className="mt-4 flex flex-wrap gap-4 border-t border-white/[0.05] pt-3 text-xs text-slate-600">
+        <div className="mt-4 flex flex-wrap items-center gap-4 border-t border-white/[0.05] pt-3 text-xs text-slate-600">
           <span className="flex items-center gap-1.5">
             <CalendarDays className="h-3 w-3" strokeWidth={1.75} />
             Data as of {report.dataAsOf}
@@ -97,6 +97,11 @@ export function DeepDive({ report }: { report: DeepDiveReport }) {
             <Database className="h-3 w-3" strokeWidth={1.75} />
             {report.sources.map((s) => s.name).join(" · ")}
           </span>
+          {isLive && (
+            <span className="ml-auto rounded-full border border-emerald-500/20 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-400">
+              Live data
+            </span>
+          )}
         </div>
       </div>
 

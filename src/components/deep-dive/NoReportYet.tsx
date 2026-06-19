@@ -23,12 +23,11 @@ export function NoReportYet({ ticker, companyName }: Props) {
       <p className="mb-6 font-mono-num text-sm text-slate-500">{ticker} · NSE</p>
 
       <div className="mb-8 rounded-xl border border-dashed border-white/[0.08] bg-slate-900/40 p-6 text-left">
-        <p className="mb-1.5 text-sm font-semibold text-slate-300">Report not generated yet</p>
+        <p className="mb-1.5 text-sm font-semibold text-slate-300">Analysis unavailable right now</p>
         <p className="text-sm leading-relaxed text-slate-500">
-          Live data fetching and AI-generated analysis arrives in Stage 1.
-          Deep dives are currently available for{" "}
-          <span className="font-medium text-slate-300">RELIANCE, INFY, and HDFCBANK</span>{" "}
-          as hand-crafted seed examples.
+          Live analysis is generated on demand from Yahoo Finance data.
+          This stock couldn&apos;t be fetched — the data provider may be unavailable.
+          Try again in a moment, or explore one of the stocks below.
         </p>
       </div>
 
