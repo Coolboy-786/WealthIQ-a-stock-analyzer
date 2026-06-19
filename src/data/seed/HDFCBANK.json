@@ -1,0 +1,129 @@
+{
+  "ticker": "HDFCBANK",
+  "exchange": "NSE",
+  "generatedAt": "2025-01-15T10:00:00.000Z",
+  "dataAsOf": "Q3 FY25",
+  "sources": [
+    { "name": "BSE/NSE Filings", "fetchedAt": "2025-01-15T09:00:00.000Z" },
+    { "name": "Seed Data (Stage 0)", "fetchedAt": "2025-01-15T09:00:00.000Z" }
+  ],
+  "snapshot": {
+    "companyName": "HDFC Bank Ltd",
+    "ticker": "HDFCBANK",
+    "exchange": "NSE",
+    "sector": "Financial Services",
+    "industry": "Private Sector Bank",
+    "description": "HDFC Bank is India's largest private sector bank by assets, serving over 90 million customers across 8,700+ branches. Following the merger with parent HDFC Ltd in July 2023, it became one of the world's largest financial institutions by market capitalisation, offering retail banking, wholesale banking, treasury, and insurance products.",
+    "marketCapCrore": { "available": true, "value": 1270000 },
+    "marketCapCategory": { "available": true, "value": "Large Cap" },
+    "currentPrice": { "available": true, "value": 1670 },
+    "fiftyTwoWeekHigh": { "available": true, "value": 1882 },
+    "fiftyTwoWeekLow": { "available": true, "value": 1426 },
+    "narrative": "HDFC Bank is widely regarded as the gold standard of Indian private banking — consistent ~18% ROE, pristine asset quality, and a retail-led liability franchise that keeps funding costs low. Post the HDFC Ltd merger, the combined entity is navigating an integration phase: loan-to-deposit ratio is elevated, and the bank is prioritising deposit mobilisation over loan growth. This is temporary friction, not a structural problem."
+  },
+  "valuation": {
+    "verdict": "Fair",
+    "narrative": "HDFC Bank trades at ~2.6x book value — below its historical average of 3.5–4x, primarily due to post-merger balance sheet concerns and slower loan growth. For a bank that has compounded book value at ~17% for two decades, this is a meaningful discount to its long-run intrinsic value. The market is pricing in a sustained period of below-average growth; if the bank normalises its LDR, this could look like a missed opportunity in hindsight.",
+    "peRatio": { "available": true, "value": 18.4 },
+    "pbRatio": { "available": true, "value": 2.6 },
+    "evEbitda": { "available": false },
+    "priceToSales": { "available": false },
+    "sectorMedianPE": { "available": true, "value": 12.0 },
+    "ivBand": { "available": true, "value": { "low": 1520, "high": 2100 } },
+    "chartData": [
+      { "label": "FY21", "value": { "available": true, "value": 22.1 } },
+      { "label": "FY22", "value": { "available": true, "value": 23.8 } },
+      { "label": "FY23", "value": { "available": true, "value": 20.4 } },
+      { "label": "FY24", "value": { "available": true, "value": 19.2 } },
+      { "label": "TTM", "value": { "available": true, "value": 18.4 } }
+    ]
+  },
+  "growth": {
+    "verdict": "Moderate",
+    "narrative": "Pre-merger, HDFC Bank grew loans at 18–22% annually for many years. Post-merger, loan growth has slowed to 8–10% as management deliberately pumped the brakes to improve the loan-to-deposit ratio. Net interest income growth has correspondingly softened. This is a calculated slowdown, not a loss of competitive position — the bank is building deposit franchise first, loan growth second. Expect re-acceleration once LDR normalises around 85%.",
+    "revenueGrowth3Y": { "available": true, "value": 18.2 },
+    "profitGrowth3Y": { "available": true, "value": 19.4 },
+    "epsGrowth3Y": { "available": true, "value": 14.1 },
+    "revenueGrowthTTM": { "available": true, "value": 9.8 },
+    "profitGrowthTTM": { "available": true, "value": 10.4 },
+    "chartData": [
+      { "label": "FY21", "value": { "available": true, "value": 85466 } },
+      { "label": "FY22", "value": { "available": true, "value": 98084 } },
+      { "label": "FY23", "value": { "available": true, "value": 130847 } },
+      { "label": "FY24", "value": { "available": true, "value": 218524 } },
+      { "label": "TTM", "value": { "available": true, "value": 240000 } }
+    ]
+  },
+  "health": {
+    "verdict": "Strong",
+    "narrative": "HDFC Bank's Gross NPA ratio (~1.3%) and Net NPA (~0.3%) are among the best in the Indian banking sector, reflecting decades of disciplined credit underwriting. The bank's CASA ratio (~42%) — the proportion of low-cost current and savings account deposits — remains high, keeping funding costs well below peers. Capital adequacy at ~18% (Tier 1: ~16.9%) is robust with significant headroom above regulatory minimums.",
+    "debtToEquity": { "available": false },
+    "interestCoverageRatio": { "available": false },
+    "currentRatio": { "available": false },
+    "cashAndEquivalentsCrore": { "available": true, "value": 89000 },
+    "operatingCashFlowCrore": { "available": true, "value": 28000 },
+    "freeCashFlowCrore": { "available": true, "value": 24000 },
+    "chartData": [
+      { "label": "FY21", "value": { "available": false } },
+      { "label": "FY22", "value": { "available": false } },
+      { "label": "FY23", "value": { "available": false } },
+      { "label": "FY24", "value": { "available": false } }
+    ]
+  },
+  "returns": {
+    "verdict": "Good",
+    "narrative": "HDFC Bank's ROE of ~17% and ROA of ~1.9% are industry-leading for an Indian bank of its size. Pre-merger, it consistently achieved 18%+ ROE — the slight moderation post-merger is a function of the larger equity base from HDFC Ltd. Net Interest Margin (~3.4%) is solid and well-defended by the low-cost liability franchise. As the merger synergies (cross-selling HDFC home loans to bank customers) kick in, margins could improve further.",
+    "roe": { "available": true, "value": 17.2 },
+    "roce": { "available": false },
+    "roa": { "available": true, "value": 1.92 },
+    "operatingMargin": { "available": false },
+    "netMargin": { "available": true, "value": 22.8 },
+    "chartData": [
+      { "label": "FY21", "value": { "available": true, "value": 16.8 } },
+      { "label": "FY22", "value": { "available": true, "value": 17.4 } },
+      { "label": "FY23", "value": { "available": true, "value": 17.9 } },
+      { "label": "FY24", "value": { "available": true, "value": 17.2 } }
+    ]
+  },
+  "peers": {
+    "narrative": "HDFC Bank is benchmarked against India's other large private sector banks. ICICI Bank has been the relative outperformer on growth and is closing the valuation gap. Kotak Bank trades at a premium on a P/B basis but has lower loan growth. Axis Bank is the most attractively valued but carries higher risk perception after past asset quality issues.",
+    "peers": [
+      { "ticker": "ICICIBANK", "name": "ICICI Bank", "marketCapCrore": { "available": true, "value": 880000 }, "peRatio": { "available": true, "value": 17.8 }, "pbRatio": { "available": true, "value": 3.1 }, "roe": { "available": true, "value": 18.4 }, "revenueGrowth3Y": { "available": true, "value": 22.1 }, "debtToEquity": { "available": false } },
+      { "ticker": "KOTAKBANK", "name": "Kotak Mahindra Bank", "marketCapCrore": { "available": true, "value": 395000 }, "peRatio": { "available": true, "value": 19.4 }, "pbRatio": { "available": true, "value": 2.9 }, "roe": { "available": true, "value": 14.8 }, "revenueGrowth3Y": { "available": true, "value": 18.4 }, "debtToEquity": { "available": false } },
+      { "ticker": "AXISBANK", "name": "Axis Bank", "marketCapCrore": { "available": true, "value": 358000 }, "peRatio": { "available": true, "value": 12.1 }, "pbRatio": { "available": true, "value": 1.8 }, "roe": { "available": true, "value": 16.2 }, "revenueGrowth3Y": { "available": true, "value": 24.8 }, "debtToEquity": { "available": false } }
+    ]
+  },
+  "ownership": {
+    "verdict": "High Conviction",
+    "narrative": "Promoter holding is effectively nil post-merger (HDFC Ltd no longer exists as a separate entity), but this is structural, not a concern. FII holding at ~54% is the highest among Nifty 50 constituents, reflecting HDFC Bank's status as the default large-cap India exposure for global institutional investors. Domestic institutions hold ~22%. The concentrated FII ownership is a double-edged sword: strong validation, but also means the stock can fall sharply in any global risk-off episode.",
+    "promoterHolding": { "available": true, "value": 0.0 },
+    "promoterPledge": { "available": true, "value": 0.0 },
+    "fiiHolding": { "available": true, "value": 54.1 },
+    "diiHolding": { "available": true, "value": 21.8 },
+    "publicHolding": { "available": true, "value": 24.1 },
+    "trend": [
+      { "quarter": "Q4 FY24", "promoter": { "available": true, "value": 0.0 }, "fii": { "available": true, "value": 53.4 }, "dii": { "available": true, "value": 21.2 } },
+      { "quarter": "Q1 FY25", "promoter": { "available": true, "value": 0.0 }, "fii": { "available": true, "value": 53.8 }, "dii": { "available": true, "value": 21.4 } },
+      { "quarter": "Q2 FY25", "promoter": { "available": true, "value": 0.0 }, "fii": { "available": true, "value": 53.9 }, "dii": { "available": true, "value": 21.6 } },
+      { "quarter": "Q3 FY25", "promoter": { "available": true, "value": 0.0 }, "fii": { "available": true, "value": 54.1 }, "dii": { "available": true, "value": 21.8 } }
+    ]
+  },
+  "theView": {
+    "overallQuality": "High",
+    "dataConfidence": "Medium",
+    "strengths": [
+      "India's most trusted banking franchise — two decades of consistent execution and pristine asset quality.",
+      "CASA ratio ~42% keeps cost of funds structurally low, protecting NIMs through rate cycles.",
+      "Merger with HDFC Ltd creates a massive cross-sell opportunity: 90M bank customers + 9M home loan customers.",
+      "Capital adequacy well above regulatory floors — significant capacity to grow loans without fresh equity."
+    ],
+    "watchPoints": [
+      "Loan-to-deposit ratio remains elevated post-merger (~110%); the bank needs to grow deposits faster than loans for 4–6 quarters.",
+      "Very high FII ownership (~54%) makes the stock a leveraged play on global risk appetite — can underperform in risk-off.",
+      "Merger integration complexity: combining two large regulated entities with different cultures and technology stacks takes time.",
+      "Slowing loan growth may compress near-term earnings growth below historical norms."
+    ],
+    "oneThingToTrack": "Loan-to-Deposit Ratio (LDR) — currently ~106–110%, target is ~85–90%. Each quarterly improvement signals the merger friction is resolving and loan growth can re-accelerate.",
+    "disclaimer": "This analysis is for educational purposes only. It does not constitute investment advice, a recommendation to buy or sell any security, or a solicitation to invest. All figures are approximate and may not reflect current market data. Do your own research and consult a SEBI-registered investment advisor before making any investment decision."
+  }
+}

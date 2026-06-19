@@ -1,0 +1,129 @@
+{
+  "ticker": "RELIANCE",
+  "exchange": "NSE",
+  "generatedAt": "2025-01-15T10:00:00.000Z",
+  "dataAsOf": "Q3 FY25",
+  "sources": [
+    { "name": "BSE/NSE Filings", "fetchedAt": "2025-01-15T09:00:00.000Z" },
+    { "name": "Seed Data (Stage 0)", "fetchedAt": "2025-01-15T09:00:00.000Z" }
+  ],
+  "snapshot": {
+    "companyName": "Reliance Industries Ltd",
+    "ticker": "RELIANCE",
+    "exchange": "NSE",
+    "sector": "Energy",
+    "industry": "Oil & Gas Refining / Retail / Telecom",
+    "description": "Reliance Industries is India's largest private-sector company by revenue and market cap. It operates across three major segments: energy (refining and petrochemicals), retail (India's largest organised retailer via Reliance Retail), and digital services (Jio Platforms, India's largest telecom operator by subscribers).",
+    "marketCapCrore": { "available": true, "value": 1720000 },
+    "marketCapCategory": { "available": true, "value": "Large Cap" },
+    "currentPrice": { "available": true, "value": 2541 },
+    "fiftyTwoWeekHigh": { "available": true, "value": 3220 },
+    "fiftyTwoWeekLow": { "available": true, "value": 2220 },
+    "narrative": "Reliance is a true conglomerate story — its legacy energy business funds two high-growth bets: Jio (India's dominant telecom network) and Reliance Retail (the country's largest modern-format retailer). Together, these digital and retail arms now contribute more than half of EBITDA and are growing significantly faster than the refining core."
+  },
+  "valuation": {
+    "verdict": "Fair",
+    "narrative": "At ~25x trailing earnings, Reliance trades at a premium to most Indian blue chips, reflecting market confidence in its Jio and Retail growth engines. Relative to its historical range of 18–30x, the current price is in the middle of the band — neither cheap enough to be a clear bargain nor expensive enough to be alarming. Its EV/EBITDA of ~14x is broadly in line with global integrated energy-and-telecom conglomerates.",
+    "peRatio": { "available": true, "value": 25.2 },
+    "pbRatio": { "available": true, "value": 2.3 },
+    "evEbitda": { "available": true, "value": 14.1 },
+    "priceToSales": { "available": true, "value": 1.8 },
+    "sectorMedianPE": { "available": true, "value": 18.0 },
+    "ivBand": { "available": true, "value": { "low": 2100, "high": 2900 } },
+    "chartData": [
+      { "label": "FY21", "value": { "available": true, "value": 22.1 } },
+      { "label": "FY22", "value": { "available": true, "value": 27.4 } },
+      { "label": "FY23", "value": { "available": true, "value": 24.8 } },
+      { "label": "FY24", "value": { "available": true, "value": 26.3 } },
+      { "label": "TTM", "value": { "available": true, "value": 25.2 } }
+    ]
+  },
+  "growth": {
+    "verdict": "Moderate",
+    "narrative": "Revenue growth has been strong in absolute terms — driven largely by the retail segment tripling in scale over three years — but consolidated profit growth is in the moderate range (10–15% CAGR) because the capital-heavy Jio rollout and new energy investments weigh on near-term margins. Watch the digital and retail segments separately: Jio ARPU growth and Retail EBITDA margin expansion are the two real growth levers here.",
+    "revenueGrowth3Y": { "available": true, "value": 14.2 },
+    "profitGrowth3Y": { "available": true, "value": 11.8 },
+    "epsGrowth3Y": { "available": true, "value": 10.5 },
+    "revenueGrowthTTM": { "available": true, "value": 8.4 },
+    "profitGrowthTTM": { "available": true, "value": 7.2 },
+    "chartData": [
+      { "label": "FY21", "value": { "available": true, "value": 539238 } },
+      { "label": "FY22", "value": { "available": true, "value": 721634 } },
+      { "label": "FY23", "value": { "available": true, "value": 878326 } },
+      { "label": "FY24", "value": { "available": true, "value": 899041 } },
+      { "label": "TTM", "value": { "available": true, "value": 974000 } }
+    ]
+  },
+  "health": {
+    "verdict": "Adequate",
+    "narrative": "Reliance carries significant absolute debt (~₹3.4 lakh crore gross) reflecting its massive capex programme in new energy and 5G. However, it also holds ~₹2.7 lakh crore in cash and liquid investments, making net debt manageable relative to its EBITDA (~1x net D/EBITDA). Interest coverage is comfortable above 4x. The risk here is sustained high capex — if the new energy bets take longer to monetise, leverage could creep up.",
+    "debtToEquity": { "available": true, "value": 0.48 },
+    "interestCoverageRatio": { "available": true, "value": 4.6 },
+    "currentRatio": { "available": true, "value": 1.21 },
+    "cashAndEquivalentsCrore": { "available": true, "value": 174000 },
+    "operatingCashFlowCrore": { "available": true, "value": 110000 },
+    "freeCashFlowCrore": { "available": true, "value": -12000 },
+    "chartData": [
+      { "label": "FY21", "value": { "available": true, "value": 0.62 } },
+      { "label": "FY22", "value": { "available": true, "value": 0.55 } },
+      { "label": "FY23", "value": { "available": true, "value": 0.51 } },
+      { "label": "FY24", "value": { "available": true, "value": 0.48 } }
+    ]
+  },
+  "returns": {
+    "verdict": "Average",
+    "narrative": "Reliance's ROE (~9%) and ROCE (~7%) look modest for a company this dominant — but that's deliberate. Reliance is in a value-creation phase: massive capital is being deployed into 5G, new energy, and retail infrastructure. These will not show their return-on-capital impact for several years. The legacy refining and petchem business earns double-digit ROCE, which is being averaged down by the investment phase. Operating margins (~12%) are solid for a conglomerate of this size.",
+    "roe": { "available": true, "value": 9.1 },
+    "roce": { "available": true, "value": 7.4 },
+    "roa": { "available": true, "value": 4.2 },
+    "operatingMargin": { "available": true, "value": 12.3 },
+    "netMargin": { "available": true, "value": 7.1 },
+    "chartData": [
+      { "label": "FY21", "value": { "available": true, "value": 8.3 } },
+      { "label": "FY22", "value": { "available": true, "value": 8.9 } },
+      { "label": "FY23", "value": { "available": true, "value": 9.4 } },
+      { "label": "FY24", "value": { "available": true, "value": 9.1 } }
+    ]
+  },
+  "peers": {
+    "narrative": "Reliance is hard to compare directly — no Indian company spans energy, retail, and telecom at this scale. Within energy, ONGC and BPCL are the closest peers; within telecom, Bharti Airtel; within retail, DMart. Versus energy peers, Reliance commands a significant premium owing to its growth businesses.",
+    "peers": [
+      { "ticker": "ONGC", "name": "ONGC", "marketCapCrore": { "available": true, "value": 316000 }, "peRatio": { "available": true, "value": 7.2 }, "pbRatio": { "available": true, "value": 0.9 }, "roe": { "available": true, "value": 12.4 }, "revenueGrowth3Y": { "available": true, "value": 9.1 }, "debtToEquity": { "available": true, "value": 0.31 } },
+      { "ticker": "BHARTIARTL", "name": "Bharti Airtel", "marketCapCrore": { "available": true, "value": 920000 }, "peRatio": { "available": true, "value": 74.1 }, "pbRatio": { "available": true, "value": 10.2 }, "roe": { "available": true, "value": 14.8 }, "revenueGrowth3Y": { "available": true, "value": 18.2 }, "debtToEquity": { "available": true, "value": 2.81 } },
+      { "ticker": "BPCL", "name": "BPCL", "marketCapCrore": { "available": true, "value": 148000 }, "peRatio": { "available": true, "value": 9.8 }, "pbRatio": { "available": true, "value": 1.8 }, "roe": { "available": true, "value": 18.2 }, "revenueGrowth3Y": { "available": true, "value": 11.4 }, "debtToEquity": { "available": true, "value": 0.42 } }
+    ]
+  },
+  "ownership": {
+    "verdict": "High Conviction",
+    "narrative": "Promoter holding (the Ambani family) has been stable at ~50%, with zero shares pledged — a positive signal. FIIs hold ~24%, reflecting strong international institutional confidence. The low pledge ratio and stable promoter stake are both reassuring. DIIs have been gradually increasing their stake over the past year, suggesting domestic fund managers are buyers at current levels.",
+    "promoterHolding": { "available": true, "value": 50.3 },
+    "promoterPledge": { "available": true, "value": 0.0 },
+    "fiiHolding": { "available": true, "value": 23.8 },
+    "diiHolding": { "available": true, "value": 14.2 },
+    "publicHolding": { "available": true, "value": 11.7 },
+    "trend": [
+      { "quarter": "Q4 FY24", "promoter": { "available": true, "value": 50.4 }, "fii": { "available": true, "value": 23.2 }, "dii": { "available": true, "value": 13.8 } },
+      { "quarter": "Q1 FY25", "promoter": { "available": true, "value": 50.3 }, "fii": { "available": true, "value": 23.5 }, "dii": { "available": true, "value": 14.0 } },
+      { "quarter": "Q2 FY25", "promoter": { "available": true, "value": 50.3 }, "fii": { "available": true, "value": 23.6 }, "dii": { "available": true, "value": 14.1 } },
+      { "quarter": "Q3 FY25", "promoter": { "available": true, "value": 50.3 }, "fii": { "available": true, "value": 23.8 }, "dii": { "available": true, "value": 14.2 } }
+    ]
+  },
+  "theView": {
+    "overallQuality": "Medium",
+    "dataConfidence": "Medium",
+    "strengths": [
+      "Dominant market position across three large, structurally growing industries (telecom, retail, energy).",
+      "Zero promoter pledge — no forced-selling risk at current prices.",
+      "Strong operating cash generation from legacy energy business funds new-age investments.",
+      "Jio is India's largest and most profitable telecom operator; ARPU expansion runway is long."
+    ],
+    "watchPoints": [
+      "Free cash flow is currently negative due to massive ongoing capex — sustainability depends on new energy monetisation timeline.",
+      "Conglomerate complexity makes segment-level assessment difficult; reported profits can mask underperformance in one arm.",
+      "New energy (solar, green hydrogen) investments are early-stage with no near-term revenue contribution.",
+      "Succession clarity around the Ambani family could be a governance overhang."
+    ],
+    "oneThingToTrack": "Jio ARPU (Average Revenue Per User) — the single number that best captures whether the telecom-to-digital platform transition is working. Target is ₹200+ ARPU; currently ~₹181.",
+    "disclaimer": "This analysis is for educational purposes only. It does not constitute investment advice, a recommendation to buy or sell any security, or a solicitation to invest. All figures are approximate and may not reflect current market data. Do your own research and consult a SEBI-registered investment advisor before making any investment decision."
+  }
+}

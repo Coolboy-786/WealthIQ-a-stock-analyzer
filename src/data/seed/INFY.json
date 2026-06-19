@@ -1,0 +1,129 @@
+{
+  "ticker": "INFY",
+  "exchange": "NSE",
+  "generatedAt": "2025-01-15T10:00:00.000Z",
+  "dataAsOf": "Q3 FY25",
+  "sources": [
+    { "name": "BSE/NSE Filings", "fetchedAt": "2025-01-15T09:00:00.000Z" },
+    { "name": "Seed Data (Stage 0)", "fetchedAt": "2025-01-15T09:00:00.000Z" }
+  ],
+  "snapshot": {
+    "companyName": "Infosys Ltd",
+    "ticker": "INFY",
+    "exchange": "NSE",
+    "sector": "Technology",
+    "industry": "IT Services",
+    "description": "Infosys is India's second-largest IT services company, providing software development, maintenance, and outsourcing services to global clients across financial services, retail, energy, and manufacturing. It serves clients in over 50 countries, with the US accounting for ~60% of revenue.",
+    "marketCapCrore": { "available": true, "value": 798000 },
+    "marketCapCategory": { "available": true, "value": "Large Cap" },
+    "currentPrice": { "available": true, "value": 1924 },
+    "fiftyTwoWeekHigh": { "available": true, "value": 2006 },
+    "fiftyTwoWeekLow": { "available": true, "value": 1358 },
+    "narrative": "Infosys is a cash-rich, capital-light IT services business that reliably converts earnings into cash. After a period of aggressive hiring during the post-Covid tech boom, it is now in a leaner phase — focused on margin recovery and deal wins in AI-led transformations. The next 2–3 years will tell us whether Infosys can defend its share in a world where clients demand AI-driven efficiency gains."
+  },
+  "valuation": {
+    "verdict": "Fair",
+    "narrative": "At ~24x trailing earnings, Infosys is priced in line with its 5-year average PE and at a slight discount to TCS (~29x). For a business that grows at 8–12% in dollar terms and returns most earnings via dividends and buybacks, the current multiple is reasonable — it implies the market is not pricing in any acceleration. If deal momentum from AI projects picks up, the earnings surprise could make today's valuation look cheap in retrospect.",
+    "peRatio": { "available": true, "value": 24.1 },
+    "pbRatio": { "available": true, "value": 8.2 },
+    "evEbitda": { "available": true, "value": 18.9 },
+    "priceToSales": { "available": true, "value": 4.6 },
+    "sectorMedianPE": { "available": true, "value": 27.0 },
+    "ivBand": { "available": true, "value": { "low": 1650, "high": 2250 } },
+    "chartData": [
+      { "label": "FY21", "value": { "available": true, "value": 28.4 } },
+      { "label": "FY22", "value": { "available": true, "value": 34.1 } },
+      { "label": "FY23", "value": { "available": true, "value": 26.3 } },
+      { "label": "FY24", "value": { "available": true, "value": 23.8 } },
+      { "label": "TTM", "value": { "available": true, "value": 24.1 } }
+    ]
+  },
+  "growth": {
+    "verdict": "Moderate",
+    "narrative": "Revenue growth in constant currency has moderated to the high single digits after the post-Covid boom years (FY22–23 saw 15–20% CC growth). The IT sector globally is seeing clients slow discretionary spending and scrutinise ROI on large transformation projects. Infosys's deal wins remain healthy (~$3.8Bn TCV in Q3 FY25), which suggests the pipeline is being built even if revenues lag. Expect growth to re-accelerate as those deals ramp.",
+    "revenueGrowth3Y": { "available": true, "value": 11.4 },
+    "profitGrowth3Y": { "available": true, "value": 9.8 },
+    "epsGrowth3Y": { "available": true, "value": 10.2 },
+    "revenueGrowthTTM": { "available": true, "value": 5.1 },
+    "profitGrowthTTM": { "available": true, "value": 4.8 },
+    "chartData": [
+      { "label": "FY21", "value": { "available": true, "value": 100472 } },
+      { "label": "FY22", "value": { "available": true, "value": 121641 } },
+      { "label": "FY23", "value": { "available": true, "value": 146767 } },
+      { "label": "FY24", "value": { "available": true, "value": 153670 } },
+      { "label": "TTM", "value": { "available": true, "value": 161480 } }
+    ]
+  },
+  "health": {
+    "verdict": "Strong",
+    "narrative": "Infosys is effectively debt-free and holds over ₹27,000 Cr in cash and investments. It has no meaningful capital expenditure requirement — the business model is people and software, not factories or infrastructure. Operating cash flow is highly predictable, typically running at 95–100% of net profit. This balance sheet is a fortress; there is no financial risk here.",
+    "debtToEquity": { "available": true, "value": 0.04 },
+    "interestCoverageRatio": { "available": true, "value": 72.4 },
+    "currentRatio": { "available": true, "value": 2.18 },
+    "cashAndEquivalentsCrore": { "available": true, "value": 27400 },
+    "operatingCashFlowCrore": { "available": true, "value": 27800 },
+    "freeCashFlowCrore": { "available": true, "value": 25900 },
+    "chartData": [
+      { "label": "FY21", "value": { "available": true, "value": 0.08 } },
+      { "label": "FY22", "value": { "available": true, "value": 0.06 } },
+      { "label": "FY23", "value": { "available": true, "value": 0.05 } },
+      { "label": "FY24", "value": { "available": true, "value": 0.04 } }
+    ]
+  },
+  "returns": {
+    "verdict": "Excellent",
+    "narrative": "Infosys consistently earns 30–35% ROE and ~28% ROCE — these are genuinely outstanding numbers for a company at this scale. The capital-light model means every rupee of retained earnings is deployed extremely efficiently. Margins have faced near-term pressure from normalising employee costs after the wage hike cycle, but at 21–22% operating margin, Infosys is still among the most profitable IT services companies globally.",
+    "roe": { "available": true, "value": 32.1 },
+    "roce": { "available": true, "value": 27.8 },
+    "roa": { "available": true, "value": 18.4 },
+    "operatingMargin": { "available": true, "value": 21.3 },
+    "netMargin": { "available": true, "value": 17.1 },
+    "chartData": [
+      { "label": "FY21", "value": { "available": true, "value": 27.4 } },
+      { "label": "FY22", "value": { "available": true, "value": 29.8 } },
+      { "label": "FY23", "value": { "available": true, "value": 31.7 } },
+      { "label": "FY24", "value": { "available": true, "value": 32.1 } }
+    ]
+  },
+  "peers": {
+    "narrative": "The Big 4 Indian IT companies (TCS, Infosys, HCL Tech, Wipro) are natural peers. Infosys consistently trades at a slight discount to TCS (which commands a premium for its size, client relationships, and margin track record) but at a premium to Wipro and Tech Mahindra. On returns, Infosys is second only to TCS; on growth, HCL Tech has been the recent outperformer.",
+    "peers": [
+      { "ticker": "TCS", "name": "TCS", "marketCapCrore": { "available": true, "value": 1380000 }, "peRatio": { "available": true, "value": 28.9 }, "pbRatio": { "available": true, "value": 12.1 }, "roe": { "available": true, "value": 42.8 }, "revenueGrowth3Y": { "available": true, "value": 10.2 }, "debtToEquity": { "available": true, "value": 0.02 } },
+      { "ticker": "HCLTECH", "name": "HCL Technologies", "marketCapCrore": { "available": true, "value": 480000 }, "peRatio": { "available": true, "value": 26.4 }, "pbRatio": { "available": true, "value": 6.8 }, "roe": { "available": true, "value": 24.1 }, "revenueGrowth3Y": { "available": true, "value": 14.1 }, "debtToEquity": { "available": true, "value": 0.07 } },
+      { "ticker": "WIPRO", "name": "Wipro", "marketCapCrore": { "available": true, "value": 262000 }, "peRatio": { "available": true, "value": 21.8 }, "pbRatio": { "available": true, "value": 3.9 }, "roe": { "available": true, "value": 18.2 }, "revenueGrowth3Y": { "available": true, "value": 7.4 }, "debtToEquity": { "available": true, "value": 0.11 } }
+    ]
+  },
+  "ownership": {
+    "verdict": "Mixed",
+    "narrative": "Promoter holding in Infosys is low at ~15% — the Murthy family gradually reduced their stake over many years. This is worth noting but is not a concern in isolation; Infosys has strong independent governance with a professional management team. FII holding at ~34% is high, meaning the stock is sensitive to global risk appetite. Any broad FII sell-off in emerging markets can weigh on the price irrespective of company fundamentals.",
+    "promoterHolding": { "available": true, "value": 14.9 },
+    "promoterPledge": { "available": true, "value": 0.0 },
+    "fiiHolding": { "available": true, "value": 34.2 },
+    "diiHolding": { "available": true, "value": 22.8 },
+    "publicHolding": { "available": true, "value": 28.1 },
+    "trend": [
+      { "quarter": "Q4 FY24", "promoter": { "available": true, "value": 15.1 }, "fii": { "available": true, "value": 33.8 }, "dii": { "available": true, "value": 22.1 } },
+      { "quarter": "Q1 FY25", "promoter": { "available": true, "value": 15.0 }, "fii": { "available": true, "value": 33.9 }, "dii": { "available": true, "value": 22.4 } },
+      { "quarter": "Q2 FY25", "promoter": { "available": true, "value": 14.9 }, "fii": { "available": true, "value": 34.0 }, "dii": { "available": true, "value": 22.6 } },
+      { "quarter": "Q3 FY25", "promoter": { "available": true, "value": 14.9 }, "fii": { "available": true, "value": 34.2 }, "dii": { "available": true, "value": 22.8 } }
+    ]
+  },
+  "theView": {
+    "overallQuality": "High",
+    "dataConfidence": "Medium",
+    "strengths": [
+      "Debt-free with ₹27,000+ Cr cash — zero financial risk, high capital return to shareholders.",
+      "Consistently 30%+ ROE and 20%+ operating margins — genuinely capital-efficient business.",
+      "High deal win rate in large AI and cloud transformation engagements.",
+      "Strong dividend and buyback track record — historically returns ~85% of free cash flow to shareholders."
+    ],
+    "watchPoints": [
+      "Revenue growth has slowed to single digits — the sector is in a demand digestion phase.",
+      "High FII ownership (~34%) makes the stock sensitive to global macro sentiment and USD/INR moves.",
+      "AI disruption risk: if AI automates IT services work, revenue per employee could decline, pressuring top-line.",
+      "Low promoter holding means no anchor shareholder — governance relies entirely on institutional checks."
+    ],
+    "oneThingToTrack": "Large deal Total Contract Value (TCV) per quarter — currently ~$3.5–4Bn. Sustained TCV above $4Bn signals demand recovery and would likely re-rate the stock.",
+    "disclaimer": "This analysis is for educational purposes only. It does not constitute investment advice, a recommendation to buy or sell any security, or a solicitation to invest. All figures are approximate and may not reflect current market data. Do your own research and consult a SEBI-registered investment advisor before making any investment decision."
+  }
+}
