@@ -4,8 +4,10 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { DeepDiveReport } from "@/types/report";
 import { VERDICT_TIER, VERDICT_DOT } from "@/types/verdicts";
-import { SnapshotTab }  from "./tabs/SnapshotTab";
-import { ValuationTab } from "./tabs/ValuationTab";
+import { SnapshotTab }   from "./tabs/SnapshotTab";
+import { TechnicalTab }  from "./tabs/TechnicalTab";
+import { NewsTab }       from "./tabs/NewsTab";
+import { ValuationTab }  from "./tabs/ValuationTab";
 import { GrowthTab }    from "./tabs/GrowthTab";
 import { HealthTab }    from "./tabs/HealthTab";
 import { ReturnsTab }   from "./tabs/ReturnsTab";
@@ -18,8 +20,10 @@ import { cn } from "@/lib/utils";
 import { CalendarDays, Database } from "lucide-react";
 
 const TABS = [
-  { id: "snapshot",  label: "Snapshot",  verdictKey: null },
-  { id: "valuation", label: "Valuation", verdictKey: "valuation" },
+  { id: "snapshot",   label: "Snapshot",   verdictKey: null },
+  { id: "technical",  label: "Technical",  verdictKey: null },
+  { id: "news",       label: "News",       verdictKey: null },
+  { id: "valuation",  label: "Valuation",  verdictKey: "valuation" },
   { id: "growth",    label: "Growth",    verdictKey: "growth" },
   { id: "health",    label: "Health",    verdictKey: "health" },
   { id: "returns",   label: "Returns",   verdictKey: "returns" },
@@ -156,7 +160,9 @@ export function DeepDive({ report, isLive }: { report: DeepDiveReport; isLive?: 
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.18, ease: "easeInOut" }}
           >
-            {activeTab === "snapshot"  && <SnapshotTab  data={report.snapshot}  />}
+            {activeTab === "snapshot"   && <SnapshotTab   data={report.snapshot}  />}
+            {activeTab === "technical"  && <TechnicalTab  data={report.snapshot}  />}
+            {activeTab === "news"       && <NewsTab ticker={report.ticker} companyName={report.snapshot.companyName} />}
             {activeTab === "valuation" && <ValuationTab data={report.valuation} />}
             {activeTab === "growth"    && <GrowthTab    data={report.growth}    />}
             {activeTab === "health"    && <HealthTab    data={report.health}    />}

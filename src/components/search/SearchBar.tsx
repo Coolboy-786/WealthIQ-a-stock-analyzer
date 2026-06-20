@@ -3,35 +3,48 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { Search, X } from "lucide-react";
-import { searchSymbols, type SymbolEntry } from "@/lib/search/fuse";
+import { searchAll, type SymbolEntry, type MFEntry } from "@/lib/search/fuse";
 import { SearchResults } from "./SearchResults";
 
 export function SearchBar() {
   const [query,   setQuery]   = useState("");
-  const [results, setResults] = useState<SymbolEntry[]>([]);
+  const [stocks,  setStocks]  = useState<SymbolEntry[]>([]);
+  const [funds,   setFunds]   = useState<MFEntry[]>([]);
   const [open,    setOpen]    = useState(false);
   const [focused, setFocused] = useState(0);
   const inputRef              = useRef<HTMLInputElement>(null);
   const router                = useRouter();
 
+  const total = stocks.length + funds.length;
+
   useEffect(() => {
-    const hits = searchSymbols(query);
-    setResults(hits);
-    setOpen(hits.length > 0);
+    const { stocks: s, funds: f } = searchAll(query);
+    setStocks(s);
+    setFunds(f);
+    setOpen(s.length > 0 || f.length > 0);
     setFocused(0);
   }, [query]);
 
-  const navigate = useCallback((entry: SymbolEntry) => {
+  const navigate = useCallback((entry: SymbolEntry | MFEntry) => {
     setQuery("");
     setOpen(false);
-    router.push(`/stock/${entry.ticker}`);
+    if ("schemeCode" in entry) {
+      router.push(`/fund/${entry.schemeCode}`);
+    } else {
+      router.push(`/stock/${entry.ticker}`);
+    }
   }, [router]);
+
+  function resolveFlat(idx: number): SymbolEntry | MFEntry | null {
+    if (idx < stocks.length) return stocks[idx] ?? null;
+    return funds[idx - stocks.length] ?? null;
+  }
 
   function handleKeyDown(e: React.KeyboardEvent) {
     if (!open) return;
-    if (e.key === "ArrowDown") { e.preventDefault(); setFocused((f) => Math.min(f + 1, results.length - 1)); }
+    if (e.key === "ArrowDown") { e.preventDefault(); setFocused((f) => Math.min(f + 1, total - 1)); }
     if (e.key === "ArrowUp")   { e.preventDefault(); setFocused((f) => Math.max(f - 1, 0)); }
-    if (e.key === "Enter")     { e.preventDefault(); if (results[focused]) navigate(results[focused]); }
+    if (e.key === "Enter")     { e.preventDefault(); const entry = resolveFlat(focused); if (entry) navigate(entry); }
     if (e.key === "Escape")    { setOpen(false); inputRef.current?.blur(); }
   }
 
@@ -46,12 +59,12 @@ export function SearchBar() {
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}
           onBlur={() => setTimeout(() => setOpen(false), 150)}
-          onFocus={() => { if (results.length > 0) setOpen(true); }}
-          placeholder="Search NSE/BSE stocks — name or ticker…"
+          onFocus={() => { if (total > 0) setOpen(true); }}
+          placeholder="Search stocks, ETFs, mutual funds…"
           className="flex-1 bg-transparent text-sm text-slate-200 placeholder-slate-600 outline-none"
           autoComplete="off"
           spellCheck={false}
-          aria-label="Search stocks"
+          aria-label="Search stocks and mutual funds"
           aria-expanded={open}
           aria-autocomplete="list"
           role="combobox"
@@ -69,9 +82,10 @@ export function SearchBar() {
 
       {open && (
         <SearchResults
-          results={results}
+          stocks={stocks}
+          funds={funds}
           focusedIndex={focused}
-          onSelect={navigate}
+          onSelect={(entry) => navigate(entry)}
           onHover={setFocused}
         />
       )}

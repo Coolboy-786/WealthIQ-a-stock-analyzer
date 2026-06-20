@@ -67,15 +67,11 @@ export default function Home() {
       <NavBar />
 
       {/* ── Hero ────────────────────────────────────────────────────────────── */}
-      <section className="relative flex flex-col items-center overflow-hidden px-4 pb-24 pt-24 text-center">
-        {/* Background orbs */}
+      <section className="relative flex flex-col items-center px-4 pb-24 pt-24 text-center">
+        {/* Background orbs — overflow-hidden scoped here so dropdown isn't clipped */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="animate-orb absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-blue-600/10 blur-[130px]" />
           <div className="animate-orb absolute left-1/4 top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-violet-600/6 blur-[100px]" style={{ animationDelay: "2.5s" }} />
-        </div>
-
-        {/* Meteors */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <Meteors number={14} />
         </div>
 
@@ -116,13 +112,13 @@ export default function Home() {
             health, returns, and ownership. No tips. No targets. Just honest analysis.
           </motion.p>
 
-          {/* Search */}
-          <motion.div variants={fadeUp} className="w-full max-w-2xl">
+          {/* Search — z-50 ensures dropdown floats above all sibling sections */}
+          <motion.div variants={fadeUp} className="relative z-50 w-full max-w-2xl">
             <SearchBar />
           </motion.div>
 
           <motion.p variants={fadeUp} className="mt-4 text-xs text-slate-600">
-            50 NSE/BSE stocks · Try RELIANCE, INFY, TCS, HDFC…
+            2,091 NSE/BSE stocks · ETFs · Mutual funds · Try RELIANCE, INFY, TCS…
           </motion.p>
         </motion.div>
       </section>

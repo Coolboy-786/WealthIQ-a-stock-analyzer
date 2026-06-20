@@ -1,5 +1,6 @@
 import type { SnapshotTab } from "@/types/report";
 import { StatCard } from "@/components/ui/stat-card";
+import { StockPriceChart } from "@/components/deep-dive/StockPriceChart";
 import { formatCrore, formatPrice } from "@/lib/utils";
 
 export function SnapshotTab({ data }: { data: SnapshotTab }) {
@@ -23,6 +24,8 @@ export function SnapshotTab({ data }: { data: SnapshotTab }) {
           <p className="text-sm leading-relaxed text-slate-400">{data.narrative}</p>
         </div>
       )}
+
+      <StockPriceChart ticker={data.ticker} exchange={data.exchange} />
 
       <div className="flex flex-wrap gap-1.5">
         {[data.sector, data.industry, data.exchange].map((tag, i) => (

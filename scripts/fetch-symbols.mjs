@@ -1,6 +1,6 @@
 /**
  * Fetches the complete NSE equity list from NSE's public CSV archive,
- * merges with manually enriched sector/industry data, and writes symbols.json.
+ * tags each entry as stock / etf / invit / reit, and writes symbols.json.
  *
  * Run: node scripts/fetch-symbols.mjs
  */
@@ -14,6 +14,36 @@ const SYMBOLS_PATH = path.join(__dirname, "../src/data/symbols.json");
 
 const NSE_CSV_URL =
   "https://archives.nseindia.com/content/equities/EQUITY_L.csv";
+
+// Hardcoded NSE tickers for InvITs and REITs (name-based detection is unreliable for these)
+const KNOWN_INVITS = new Set([
+  "INDIGRID", "IRBINVIT", "PGINFRA", "NHAINVIT", "BHARATINVIT",
+  "POWERGRID", "RPOWER",
+]);
+const KNOWN_REITS = new Set([
+  "EMBASSY", "MINDSPACE", "NEXUS", "BIRET", "BROOKFIELD",
+]);
+
+function getAssetType(ticker, name) {
+  const u = name.toUpperCase();
+
+  if (
+    KNOWN_REITS.has(ticker) ||
+    u.includes("REAL ESTATE INVESTMENT TRUST") ||
+    u.includes(" REIT")
+  ) return "reit";
+
+  if (
+    KNOWN_INVITS.has(ticker) ||
+    u.includes("INFRASTRUCTURE INVESTMENT TRUST") ||
+    u.includes(" INVIT FUND") ||
+    u.includes(" INVIT ")
+  ) return "invit";
+
+  if (u.includes(" ETF") || u.includes("BEES") || u.includes("BEES ")) return "etf";
+
+  return "stock";
+}
 
 function parseCSVLine(line) {
   const cols = [];
@@ -34,7 +64,6 @@ function parseCSVLine(line) {
 }
 
 async function main() {
-  // Load existing symbols.json as the enrichment source (sector/industry)
   const existing = JSON.parse(fs.readFileSync(SYMBOLS_PATH, "utf-8"));
   const enriched = {};
   for (const s of existing) {
@@ -65,19 +94,21 @@ async function main() {
     const series = cols[2];
 
     if (!ticker || !name) continue;
-    if (series !== "EQ") continue; // skip warrants, SME-ITP, etc.
+    if (series !== "EQ") continue;
 
-    const enc = enriched[ticker];
+    const enc  = enriched[ticker];
+    const type = getAssetType(ticker, name);
+
     symbols.push({
       ticker,
-      name: toTitleCase(name),
+      name:     toTitleCase(name),
       exchange: "NSE",
-      sector:   enc?.sector   ?? "Unknown",
-      industry: enc?.industry ?? "Unknown",
+      type,
+      sector:   type === "stock" ? (enc?.sector   ?? "Unknown") : type === "etf" ? "ETF" : type === "reit" ? "REIT" : "InvIT",
+      industry: type === "stock" ? (enc?.industry ?? "Unknown") : "",
     });
   }
 
-  // Enriched stocks first, then Unknown alphabetically
   symbols.sort((a, b) => {
     const aK = a.sector !== "Unknown" ? 0 : 1;
     const bK = b.sector !== "Unknown" ? 0 : 1;
@@ -87,12 +118,14 @@ async function main() {
 
   fs.writeFileSync(SYMBOLS_PATH, JSON.stringify(symbols, null, 2));
 
-  const enrichedCount = symbols.filter((s) => s.sector !== "Unknown").length;
-  console.log(`Done. Total: ${symbols.length} | Enriched: ${enrichedCount} | Unknown sector: ${symbols.length - enrichedCount}`);
+  const byType = symbols.reduce((acc, s) => {
+    acc[s.type] = (acc[s.type] ?? 0) + 1;
+    return acc;
+  }, {});
+  console.log(`Done. Total: ${symbols.length}`, byType);
 }
 
 function toTitleCase(str) {
-  // NSE names come in ALL CAPS — convert to Title Case
   return str
     .toLowerCase()
     .replace(/\b(\w)/g, (c) => c.toUpperCase())
@@ -101,7 +134,7 @@ function toTitleCase(str) {
     )
     .replace(/\b(Ltd)\b/gi, "Ltd")
     .replace(/\b(Ltd\.)\b/gi, "Ltd.")
-    .replace(/\b(NSE|BSE|ICICI|HDFC|SBI|NBFC|ITI|BEL|HAL|PSU|PSB)\b/gi, (m) =>
+    .replace(/\b(NSE|BSE|ICICI|HDFC|SBI|NBFC|ITI|BEL|HAL|PSU|PSB|ETF|REIT|InvIT)\b/gi, (m) =>
       m.toUpperCase()
     );
 }
