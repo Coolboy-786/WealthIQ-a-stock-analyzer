@@ -7,6 +7,7 @@ import { VERDICT_TIER, VERDICT_DOT } from "@/types/verdicts";
 import { SnapshotTab }   from "./tabs/SnapshotTab";
 import { TechnicalTab }  from "./tabs/TechnicalTab";
 import { NewsTab }       from "./tabs/NewsTab";
+import { EventsTab }    from "./tabs/EventsTab";
 import { ValuationTab }  from "./tabs/ValuationTab";
 import { GrowthTab }    from "./tabs/GrowthTab";
 import { HealthTab }    from "./tabs/HealthTab";
@@ -23,6 +24,7 @@ const TABS = [
   { id: "snapshot",   label: "Snapshot",   verdictKey: null },
   { id: "technical",  label: "Technical",  verdictKey: null },
   { id: "news",       label: "News",       verdictKey: null },
+  { id: "events",     label: "Events",     verdictKey: null },
   { id: "valuation",  label: "Valuation",  verdictKey: "valuation" },
   { id: "growth",    label: "Growth",    verdictKey: "growth" },
   { id: "health",    label: "Health",    verdictKey: "health" },
@@ -162,7 +164,8 @@ export function DeepDive({ report, isLive }: { report: DeepDiveReport; isLive?: 
           >
             {activeTab === "snapshot"   && <SnapshotTab   data={report.snapshot}  />}
             {activeTab === "technical"  && <TechnicalTab  data={report.snapshot}  />}
-            {activeTab === "news"       && <NewsTab ticker={report.ticker} companyName={report.snapshot.companyName} />}
+            {activeTab === "news"       && <NewsTab   ticker={report.ticker} companyName={report.snapshot.companyName} />}
+            {activeTab === "events"     && <EventsTab ticker={report.ticker} companyName={report.snapshot.companyName} />}
             {activeTab === "valuation" && <ValuationTab data={report.valuation} />}
             {activeTab === "growth"    && <GrowthTab    data={report.growth}    />}
             {activeTab === "health"    && <HealthTab    data={report.health}    />}
