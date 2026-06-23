@@ -1,0 +1,9 @@
+{
+  "functions": {
+    "src/app/api/fund/[schemeCode]/route.ts": { "regions": ["bom1"] },
+    "src/app/api/news/[ticker]/route.ts":     { "regions": ["bom1"] },
+    "src/app/api/report/[ticker]/route.ts":   { "regions": ["bom1"] },
+    "src/app/api/price-history/[ticker]/route.ts": { "regions": ["bom1"] },
+    "src/app/api/technical/[ticker]/route.ts": { "regions": ["bom1"] }
+  }
+}
