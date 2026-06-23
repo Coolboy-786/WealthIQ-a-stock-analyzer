@@ -132,15 +132,38 @@ function buildHistories(sorted: ParsedNav[]): NavHistories {
   };
 }
 
+async function fetchWithRetry(url: string, attempts = 3): Promise<Response> {
+  let lastErr: unknown;
+  for (let i = 0; i < attempts; i++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 12_000);
+    try {
+      const res = await fetch(url, {
+        headers: {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+          "Accept": "application/json",
+        },
+        signal: controller.signal,
+        cache:  "no-store",
+      });
+      clearTimeout(timer);
+      if (res.ok) return res;
+      lastErr = new Error(`HTTP ${res.status}`);
+    } catch (e) {
+      clearTimeout(timer);
+      lastErr = e;
+      if (i < attempts - 1) await new Promise((r) => setTimeout(r, 800 * (i + 1)));
+    }
+  }
+  throw lastErr;
+}
+
 export async function fetchFundReport(
   schemeCode: number,
   meta: { name: string; fundHouse: string; category: string; isEtf: boolean },
 ): Promise<FundReport> {
-  const res = await fetch(`${MFAPI_BASE}/${schemeCode}`, {
-    headers: { "User-Agent": "Mozilla/5.0 (WealthIQ)" },
-    next:    { revalidate: 0 },
-  });
-  if (!res.ok) throw new Error(`mfapi.in ${schemeCode}: ${res.status}`);
+  const res = await fetchWithRetry(`${MFAPI_BASE}/${schemeCode}`);
+  if (!res.ok) throw new Error(`mfapi.in ${schemeCode}: HTTP ${res.status}`);
 
   const raw: MFAPIResponse = await res.json();
   if (raw.status !== "SUCCESS" || raw.data.length === 0)
