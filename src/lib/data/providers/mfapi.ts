@@ -132,6 +132,21 @@ function buildHistories(sorted: ParsedNav[]): NavHistories {
   };
 }
 
+// Back-adjust pre-split NAVs so returns are accurate after unit splits.
+// sorted is oldest→newest. At a split, out[i].nav (post-split) << out[i-1].nav (pre-split).
+// Detect when prev/current > 1.67x (catches 2:1, 5:1, 10:1 splits).
+// Divide all pre-split entries by the split factor so they're on the same scale.
+function splitAdjust(pts: ParsedNav[]): ParsedNav[] {
+  const out = pts.map((p) => ({ ...p }));
+  for (let i = 1; i < out.length; i++) {
+    const splitFactor = out[i - 1].nav / out[i].nav;
+    if (splitFactor > 1.67) {
+      for (let j = 0; j < i; j++) out[j].nav = out[j].nav / splitFactor;
+    }
+  }
+  return out;
+}
+
 async function fetchWithRetry(url: string, attempts = 3): Promise<Response> {
   let lastErr: unknown;
   for (let i = 0; i < attempts; i++) {
@@ -169,10 +184,12 @@ export async function fetchFundReport(
   if (raw.status !== "SUCCESS" || raw.data.length === 0)
     throw new Error(`mfapi.in no data for ${schemeCode}`);
 
-  const sorted: ParsedNav[] = raw.data
-    .map((d) => ({ date: parseNavDate(d.date), nav: parseFloat(d.nav) }))
-    .filter((p) => !isNaN(p.nav))
-    .reverse();
+  const sorted: ParsedNav[] = splitAdjust(
+    raw.data
+      .map((d) => ({ date: parseNavDate(d.date), nav: parseFloat(d.nav) }))
+      .filter((p) => !isNaN(p.nav))
+      .reverse()
+  );
 
   const latest          = sorted[sorted.length - 1];
   const oldest          = sorted[0];
