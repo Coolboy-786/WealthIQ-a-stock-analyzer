@@ -24,18 +24,17 @@ const toYYYYMMDD = (d: Date) =>
   `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 
 const PERIOD_CONFIG: Record<Period, {
-  interval: "60m" | "1d" | "1wk" | "1mo";
+  interval: "1d" | "1wk" | "1mo";
   daysBack: number;
-  intraday: boolean;
 }> = {
-  "1d": { interval: "60m", daysBack: 2,    intraday: true  },
-  "1w": { interval: "1d",  daysBack: 7,    intraday: false },
-  "1m": { interval: "1d",  daysBack: 30,   intraday: false },
-  "3m": { interval: "1d",  daysBack: 90,   intraday: false },
-  "6m": { interval: "1wk", daysBack: 180,  intraday: false },
-  "1y": { interval: "1wk", daysBack: 365,  intraday: false },
-  "3y": { interval: "1mo", daysBack: 1095, intraday: false },
-  "5y": { interval: "1mo", daysBack: 1825, intraday: false },
+  "1d": { interval: "1d",  daysBack: 7    },
+  "1w": { interval: "1d",  daysBack: 14   },
+  "1m": { interval: "1d",  daysBack: 45   },
+  "3m": { interval: "1d",  daysBack: 120  },
+  "6m": { interval: "1wk", daysBack: 200  },
+  "1y": { interval: "1wk", daysBack: 400  },
+  "3y": { interval: "1mo", daysBack: 1095 },
+  "5y": { interval: "1mo", daysBack: 1825 },
 };
 
 function getExchange(ticker: string): "NSE" | "BSE" {
@@ -56,39 +55,20 @@ async function fetchHistory(symbol: string, cfg: typeof PERIOD_CONFIG[Period]): 
   const period1 = new Date();
   period1.setDate(period1.getDate() - cfg.daysBack);
 
-  if (cfg.intraday) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const result = await yf.chart(symbol, { interval: cfg.interval, period1, period2 }, { validateResult: false }) as any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const quotes: any[] = result?.quotes ?? [];
-    return quotes
-      .filter((q) => q?.close != null && q?.open != null)
-      .map((q) => ({
-        time:   Math.floor(new Date(q.date).getTime() / 1000), // Unix seconds UTC
-        open:   safe(q.open),
-        high:   safe(q.high),
-        low:    safe(q.low),
-        close:  safe(q.close),
-        volume: safe(q.volume),
-      }));
-  } else {
-    const result = await yf.historical(
-      symbol,
-      { interval: cfg.interval as "1d" | "1wk" | "1mo", period1, period2 },
-      { validateResult: false },
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ) as any[];
-    return result
-      .filter((q) => q?.close != null)
-      .map((q) => ({
-        time:   toYYYYMMDD(new Date(q.date)),
-        open:   safe(q.open ?? q.close),
-        high:   safe(q.high ?? q.close),
-        low:    safe(q.low  ?? q.close),
-        close:  safe(q.adjClose ?? q.close),
-        volume: safe(q.volume),
-      }));
-  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const result = await yf.chart(symbol, { interval: cfg.interval, period1, period2 }, { validateResult: false }) as any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const quotes: any[] = result?.quotes ?? [];
+  return quotes
+    .filter((q) => q?.close != null && q?.open != null)
+    .map((q) => ({
+      time:   toYYYYMMDD(new Date(q.date)),
+      open:   safe(q.open),
+      high:   safe(q.high),
+      low:    safe(q.low),
+      close:  safe(q.adjClose ?? q.close),
+      volume: safe(q.volume),
+    }));
 }
 
 export async function GET(
