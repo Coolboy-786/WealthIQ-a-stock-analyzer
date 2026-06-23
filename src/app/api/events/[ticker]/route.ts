@@ -60,22 +60,22 @@ export async function GET(
 
     // Dividends
     const rawDivs = result?.events?.dividends ?? {};
-    for (const val of Object.values(rawDivs) as { amount: number; date: number }[]) {
+    for (const val of Object.values(rawDivs) as { amount: number; date: Date | number }[]) {
       if (!val?.date) continue;
       events.push({
         type:   "dividend",
-        date:   toYYYYMMDD(new Date(val.date * 1000)),
+        date:   toYYYYMMDD(val.date instanceof Date ? val.date : new Date((val.date as number) * 1000)),
         amount: parseFloat((val.amount ?? 0).toFixed(2)),
       });
     }
 
     // Splits
     const rawSplits = result?.events?.splits ?? {};
-    for (const val of Object.values(rawSplits) as { date: number; numerator: number; denominator: number; splitRatio?: string }[]) {
+    for (const val of Object.values(rawSplits) as { date: Date | number; numerator: number; denominator: number; splitRatio?: string }[]) {
       if (!val?.date) continue;
       events.push({
         type:  "split",
-        date:  toYYYYMMDD(new Date(val.date * 1000)),
+        date:  toYYYYMMDD(val.date instanceof Date ? val.date : new Date((val.date as number) * 1000)),
         ratio: val.splitRatio ?? `${val.numerator}:${val.denominator}`,
       });
     }
