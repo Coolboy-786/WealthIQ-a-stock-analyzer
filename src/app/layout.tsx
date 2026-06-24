@@ -21,11 +21,25 @@ export const metadata: Metadata = {
   title: "WealthIQ — Fundamentals Research for Indian Stocks",
   description:
     "Plain-English deep dives into NSE/BSE company fundamentals. No tips. No targets. Just honest analysis.",
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "WealthIQ",
+  },
+  icons: {
+    icon: [
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
 };
 
 export const viewport: Viewport = {
   width:        "device-width",
   initialScale: 1,
+  themeColor:   "#020617",
 };
 
 export default function RootLayout({
